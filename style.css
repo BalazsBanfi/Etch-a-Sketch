@@ -1,6 +1,6 @@
 
 :root {
-    --grid-size : calc(480px / 10);
+    --grid-size: calc(480px / 16);
 }
 
 * {
