@@ -29,6 +29,13 @@ html {
     background-color: white;
 }
 
+.divGrid {
+    background-color: grey;
+    border: 1px solid red;
+    width: calc(480px / 16);
+    min-height: calc(480px / 16);
+}
+
 .footer {
     margin: 1rem auto;
 }
