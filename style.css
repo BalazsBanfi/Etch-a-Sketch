@@ -1,6 +1,6 @@
 
 :root {
-    --grid-size : calc(480px / 16);
+    --grid-size : calc(480px / 10);
 }
 
 * {
@@ -32,6 +32,11 @@ html {
     width: 480px;
     height: 480px;
     background-color: white;
+}
+
+#container {
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .divGrid {

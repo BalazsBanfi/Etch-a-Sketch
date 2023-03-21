@@ -1,9 +1,9 @@
-let rows = 0;
-
-rows = 2;
+let rows = 10;
 
 const container = document.querySelector('#container');
-const divGrid = document.createElement('div');
-divGrid.classList.add('divGrid');
 
-container.appendChild(divGrid);
+for (let i = 0; i < (rows * rows); i++) {
+    const divGrid = document.createElement('div');
+    divGrid.classList.add('divGrid');
+    container.appendChild(divGrid);
+}
