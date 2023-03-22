@@ -1,18 +1,17 @@
 const container = document.querySelector('#container');
-let rows = 'calc(480px / 10)';
+let cols = 2;
+let rows = 480 / cols + 'px';
 
 // reset button set
 const resetBtn = document.querySelector('#reset');
 resetBtn.addEventListener('click',  () => {
-    resetFunction(16);
+    resetFunction(cols);
 });
 
 const r = document.querySelector(':root');
 function myFunction_set() {
     r.style.setProperty('--grid-size', rows);
 }
-
-
 
 function resetFunction(rows) {
     myFunction_set();
