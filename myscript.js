@@ -1,15 +1,28 @@
 const container = document.querySelector('#container');
-let cols = 2;
-let rows = 480 / cols + 'px';
+const r = document.querySelector(':root');
+let cols = document.getElementById("range");
+let colsShow = document.getElementById("gridSize");
+colsShow.innerHTML = cols.value;
+let rows = 480 / cols.value + 'px';
+resetFunction(cols.value);
+
+
+cols.oninput = function() {
+  colsShow.innerHTML = this.value;
+  rows = 480 / cols.value + 'px';
+  resetFunction(cols.value);
+}
+
 
 // reset button set
 const resetBtn = document.querySelector('#reset');
 resetBtn.addEventListener('click',  () => {
-    resetFunction(cols);
+    resetFunction(cols.value);
 });
 
-const r = document.querySelector(':root');
+
 function myFunction_set() {
+    console.log(rows);
     r.style.setProperty('--grid-size', rows);
 }
 
