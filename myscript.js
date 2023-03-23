@@ -17,12 +17,14 @@ cols.oninput = function() {
 // reset button set
 const resetBtn = document.querySelector('#reset');
 resetBtn.addEventListener('click',  () => {
-    resetFunction(cols.value);
+    colsShow.innerHTML = 16;
+    cols.value = 16;
+    rows = 480 / 16 + 'px';
+    resetFunction(16);
 });
 
 
 function myFunction_set() {
-    console.log(rows);
     r.style.setProperty('--grid-size', rows);
 }
 
@@ -35,3 +37,24 @@ function resetFunction(rows) {
         container.appendChild(divGrid);
     }
 }
+
+//document.querySelectorAll('.divGrid').forEach(el => el.style.backgroundColor = "black");
+
+const black = document.querySelectorAll('.divGrid')
+black.addEventListener("mouseenter", (event) => {
+    event.style.backgroundColor = "black";
+});
+
+
+// change the colors
+/*
+let divChange = document.getElementsByClassName('.divGrid');
+console.log(divChange);
+divChange.addEventListener("mousemove", function(e) {
+
+divChange.style.backgroundColor = 'white';
+});
+//style.backgroundColor = "black";
+divChange.addEventListener("mouseover", function(e) {
+        e.target.style.background = "black";
+    });*/
