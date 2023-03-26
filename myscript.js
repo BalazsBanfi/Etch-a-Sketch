@@ -8,9 +8,9 @@ let rows = 480 / rangeNum.value + 'px';
 
 buildGrid(rangeNum.value);
 
-
+// Range slider onchange event
 rangeNum.oninput = function() {
-  showRangenum.innerHTML = this.value;
+  showRangeNum.innerHTML = this.value;
   rows = 480 / rangeNum.value + 'px';
   buildGrid(rangeNum.value);
 }
