@@ -1,60 +1,37 @@
 const container = document.querySelector('#container');
 const r = document.querySelector(':root');
-let cols = document.getElementById("range");
-let colsShow = document.getElementById("gridSize");
-colsShow.innerHTML = cols.value;
-let rows = 480 / cols.value + 'px';
-resetFunction(cols.value);
+let grid = "";
+let rangeNum = document.getElementById("range");
+let showRangeNum = document.getElementById("gridSize");
+showRangeNum.innerHTML = rangeNum.value;
+let rows = 480 / rangeNum.value + 'px';
+
+buildGrid(rangeNum.value);
 
 
-cols.oninput = function() {
-  colsShow.innerHTML = this.value;
-  rows = 480 / cols.value + 'px';
-  resetFunction(cols.value);
+rangeNum.oninput = function() {
+  showRangenum.innerHTML = this.value;
+  rows = 480 / rangeNum.value + 'px';
+  buildGrid(rangeNum.value);
 }
 
 
 // reset button set
 const resetBtn = document.querySelector('#reset');
 resetBtn.addEventListener('click',  () => {
-    colsShow.innerHTML = 16;
-    cols.value = 16;
+    showRangeNum.innerHTML = 16;
+    rangeNum.value = 16;
     rows = 480 / 16 + 'px';
-    resetFunction(16);
+    buildGrid(16);
 });
 
 
-function myFunction_set() {
+function buildGrid(size) {
     r.style.setProperty('--grid-size', rows);
-}
-
-function resetFunction(rows) {
-    myFunction_set();
-    document.querySelectorAll('.divGrid').forEach(el => el.remove());
-    for (let i = 0; i < (rows * rows); i++) {
-        const divGrid = document.createElement('div');
-        divGrid.classList.add('divGrid');
-        container.appendChild(divGrid);
+    document.querySelectorAll('.grid').forEach(el => el.remove());
+    for (let i = 0; i < (size * size); i++) {
+        grid = document.createElement('div');
+        grid.classList.add('grid');
+        container.appendChild(grid);
     }
 }
-
-//document.querySelectorAll('.divGrid').forEach(el => el.style.backgroundColor = "black");
-
-const black = document.querySelectorAll('.divGrid')
-black.addEventListener("mouseenter", (event) => {
-    event.style.backgroundColor = "black";
-});
-
-
-// change the colors
-/*
-let divChange = document.getElementsByClassName('.divGrid');
-console.log(divChange);
-divChange.addEventListener("mousemove", function(e) {
-
-divChange.style.backgroundColor = 'white';
-});
-//style.backgroundColor = "black";
-divChange.addEventListener("mouseover", function(e) {
-        e.target.style.background = "black";
-    });*/
