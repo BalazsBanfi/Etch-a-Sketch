@@ -39,7 +39,7 @@ html {
     flex-wrap: wrap;
 }
 
-.grid {
+.gridCl {
     background-color: #eeeeee;
     border: 1px solid #cccccc;
     width: var(--grid-size);

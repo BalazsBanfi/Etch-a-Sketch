@@ -1,6 +1,6 @@
 const container = document.querySelector('#container');
 const r = document.querySelector(':root');
-let grid = "";
+//let grid = "";
 let rangeNum = document.getElementById("range");
 let showRangeNum = document.getElementById("gridSize");
 showRangeNum.innerHTML = rangeNum.value;
@@ -28,12 +28,15 @@ resetBtn.addEventListener('click',  () => {
 
 function buildGrid(size) {
     r.style.setProperty('--grid-size', rows);
-    document.querySelectorAll('.grid').forEach(el => el.remove());
+    document.querySelectorAll('.gridCl').forEach(el => el.remove());
     for (let i = 0; i < (size * size); i++) {
-        grid = document.createElement('div');
-        grid.classList.add('grid');
+        let grid = document.createElement('div');
+        grid.addEventListener('mouseover', paintIt);
+        grid.classList.add('gridCl');
         container.appendChild(grid);
     }
 }
 
-
+function paintIt() {
+    this.style.backgroundColor = "black"
+}
