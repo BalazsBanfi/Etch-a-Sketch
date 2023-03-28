@@ -1,6 +1,6 @@
 const container = document.querySelector('#container');
 const r = document.querySelector(':root');
-//let grid = "";
+let color = "green";
 let rangeNum = document.getElementById("range");
 let showRangeNum = document.getElementById("gridSize");
 showRangeNum.innerHTML = rangeNum.value;
@@ -25,6 +25,25 @@ resetBtn.addEventListener('click',  () => {
     buildGrid(16);
 });
 
+const blackBtn = document.querySelector('#blackBtn');
+blackBtn.addEventListener('click',  () => {
+    color = "black";
+});
+
+const erasor = document.querySelector('#erasor');
+erasor.addEventListener('click',  () => {
+    color = "#eeeeee";
+});
+
+const randomColorBtn = document.querySelector('#randomColorBtn');
+randomColorBtn.addEventListener('click',  () => {
+    color = "random";
+});
+
+const colorPalette = document.querySelector('#colorPalette');
+colorPalette.addEventListener('input',  () => {
+    color = colorPalette.value;
+});
 
 function buildGrid(size) {
     r.style.setProperty('--grid-size', rows);
@@ -38,5 +57,10 @@ function buildGrid(size) {
 }
 
 function paintIt() {
-    this.style.backgroundColor = "black"
+    if (color === "random") {
+      this.style.backgroundColor = "#" + Math.floor(Math.random()*16777215).toString(16);
+    }
+    else {
+      this.style.backgroundColor = color;
+    }
 }
