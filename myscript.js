@@ -1,10 +1,11 @@
 const container = document.querySelector('#container');
 const r = document.querySelector(':root');
-let color = "green";
+let color = "black";
 let rangeNum = document.getElementById("range");
 let showRangeNum = document.getElementById("gridSize");
 showRangeNum.innerHTML = rangeNum.value;
 let rows = 480 / rangeNum.value + 'px';
+
 
 buildGrid(rangeNum.value);
 
@@ -14,7 +15,6 @@ rangeNum.oninput = function() {
   rows = 480 / rangeNum.value + 'px';
   buildGrid(rangeNum.value);
 }
-
 
 // reset button set
 const resetBtn = document.querySelector('#reset');
