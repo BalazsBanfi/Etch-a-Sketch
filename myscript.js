@@ -13,6 +13,7 @@ buildGrid(rangeNum.value);
 rangeNum.oninput = function() {
   showRangeNum.innerHTML = this.value;
   rows = 480 / rangeNum.value + 'px';
+  color = "black";
   buildGrid(rangeNum.value);
 }
 
@@ -22,6 +23,7 @@ resetBtn.addEventListener('click',  () => {
     showRangeNum.innerHTML = 16;
     rangeNum.value = 16;
     rows = 480 / 16 + 'px';
+    color = "black";
     buildGrid(16);
 });
 
